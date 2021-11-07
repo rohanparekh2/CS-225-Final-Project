@@ -16,3 +16,4 @@
 
 **Conflict Resolution** - If conflict appears in the team we will have a brief meeting with the whole team as soon as possible and discuss what the conflict is and how it could be resolved such as making sure certain members put in their work or maybe extra work. If we feel the manner is a serious issue then we will make sure to contact the course staff as soon as possible.
 
+Kaushal Dadi: kdadi2
