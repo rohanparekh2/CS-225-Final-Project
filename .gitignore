@@ -7,6 +7,26 @@
 *.o
 *.obj
 
+# Ignore executables (forces every user to make)
+main
+test
+
+# CMake things
+_build/
+*.a
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+
+# Ignore catch2 dependency (forces cmake3 everytime)
+_deps/
+
+# VSCode
+.vscode/
+
+.DS_Store
+pagerank.txt
+
 # Precompiled Headers
 *.gch
 *.pch
