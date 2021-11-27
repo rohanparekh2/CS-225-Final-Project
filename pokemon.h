@@ -1,5 +1,6 @@
 #pragma once
 
+
 using namespace std;
 
 class Pokemon {
@@ -14,6 +15,8 @@ class Pokemon {
     double height_;
     double weight_;
     double catchRate_;
+    string test1;
+    string test2;
 
   public:
     Pokemon();
@@ -27,6 +30,8 @@ class Pokemon {
     size_t getDexID();
 
     string getName();
+    string getT1();
+    string getT2();
 
     size_t getGen();
     

@@ -68,10 +68,10 @@ RM = /usr/bin/cmake3 -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317
+CMAKE_SOURCE_DIR = cs225git/rohanjp2-kdadi2-amart317
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317
+CMAKE_BINARY_DIR = cs225git/rohanjp2-kdadi2-amart317
 
 #=============================================================================
 # Targets provided globally by CMake.
