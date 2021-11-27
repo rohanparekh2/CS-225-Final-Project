@@ -1,0 +1,11 @@
+    std::string strnum1("1");
+    std::string strnum2("2");
+    int number1;
+    int number2;
+    std::stringstream convert;
+
+    convert << strnum1;
+    convert >> number1;
+
+    convert.str(""); // clear the stringstream
+    convert.clear(); // clear the state flags for another conversion

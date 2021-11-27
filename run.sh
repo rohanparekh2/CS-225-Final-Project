@@ -5,5 +5,6 @@
 ./test.sh
 
 cd src
+make main
 ./main "$@"
 cd ..

@@ -130,6 +130,84 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named test-pokemon
+
+# Build rule for target.
+test-pokemon: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-pokemon
+.PHONY : test-pokemon
+
+# fast build rule for target.
+test-pokemon/fast:
+	$(MAKE) $(MAKESILENT) -f pokemon_testing/CMakeFiles/test-pokemon.dir/build.make pokemon_testing/CMakeFiles/test-pokemon.dir/build
+.PHONY : test-pokemon/fast
+
+#=============================================================================
+# Target rules for targets named main-pokemon
+
+# Build rule for target.
+main-pokemon: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main-pokemon
+.PHONY : main-pokemon
+
+# fast build rule for target.
+main-pokemon/fast:
+	$(MAKE) $(MAKESILENT) -f pokemon_testing/CMakeFiles/main-pokemon.dir/build.make pokemon_testing/CMakeFiles/main-pokemon.dir/build
+.PHONY : main-pokemon/fast
+
+#=============================================================================
+# Target rules for targets named PokemonLib
+
+# Build rule for target.
+PokemonLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PokemonLib
+.PHONY : PokemonLib
+
+# fast build rule for target.
+PokemonLib/fast:
+	$(MAKE) $(MAKESILENT) -f pokemon_testing/CMakeFiles/PokemonLib.dir/build.make pokemon_testing/CMakeFiles/PokemonLib.dir/build
+.PHONY : PokemonLib/fast
+
+#=============================================================================
+# Target rules for targets named test-graph
+
+# Build rule for target.
+test-graph: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-graph
+.PHONY : test-graph
+
+# fast build rule for target.
+test-graph/fast:
+	$(MAKE) $(MAKESILENT) -f graph_testing/CMakeFiles/test-graph.dir/build.make graph_testing/CMakeFiles/test-graph.dir/build
+.PHONY : test-graph/fast
+
+#=============================================================================
+# Target rules for targets named main-graph
+
+# Build rule for target.
+main-graph: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main-graph
+.PHONY : main-graph
+
+# fast build rule for target.
+main-graph/fast:
+	$(MAKE) $(MAKESILENT) -f graph_testing/CMakeFiles/main-graph.dir/build.make graph_testing/CMakeFiles/main-graph.dir/build
+.PHONY : main-graph/fast
+
+#=============================================================================
+# Target rules for targets named GraphLib
+
+# Build rule for target.
+GraphLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GraphLib
+.PHONY : GraphLib
+
+# fast build rule for target.
+GraphLib/fast:
+	$(MAKE) $(MAKESILENT) -f graph_testing/CMakeFiles/GraphLib.dir/build.make graph_testing/CMakeFiles/GraphLib.dir/build
+.PHONY : GraphLib/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -138,6 +216,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... GraphLib"
+	@echo "... PokemonLib"
+	@echo "... main-graph"
+	@echo "... main-pokemon"
+	@echo "... test-graph"
+	@echo "... test-pokemon"
 .PHONY : help
 
 

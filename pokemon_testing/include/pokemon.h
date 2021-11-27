@@ -1,13 +1,18 @@
 #pragma once
+#include <vector>
+#include <string>
+#include <cstdlib>
+#include <fstream>
 
+#include <iostream>
 
 using namespace std;
 
 class Pokemon {
   private:
-    size_t pokedexID_;
+    double pokedexID_;
     string name_;
-    size_t gen_;
+    double gen_;
     string status_;
     string species_;
     string typeOne_;
@@ -21,19 +26,19 @@ class Pokemon {
   public:
     Pokemon();
 
-    Pokemon(size_t dexID, string name, size_t gen, string status,
+    Pokemon(double dexID, string name, double gen, string status,
             string species, string type1, string type2, double height,
             double weight, double catchRate);
     
-    Pokemon(size_t dexID);
+    Pokemon(double dexID);
 
-    size_t getDexID();
+    double getDexID();
 
     string getName();
     string getT1();
     string getT2();
 
-    size_t getGen();
+    double getGen();
     
     string getStatus();
 
@@ -46,4 +51,6 @@ class Pokemon {
     double getWeight();
 
     double getCatchRate();
-}
+
+    string getSpecies();
+};

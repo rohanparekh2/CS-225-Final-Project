@@ -1,6 +1,10 @@
-#include "pokemon.h"
+#include "../include/pokemon.h"
 #include <vector>
+#include <string>
 #include <cstdlib>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -17,7 +21,7 @@ Pokemon::Pokemon() {
     catchRate_ = -1;
 }
 
-Pokemon::Pokemon(size_t dexID, string name, size_t gen, string status,
+Pokemon::Pokemon(double dexID, string name, double gen, string status,
             string species, string type1, string type2, double height,
             double weight, double catchRate) {
     pokedexID_ = dexID;
@@ -32,39 +36,39 @@ Pokemon::Pokemon(size_t dexID, string name, size_t gen, string status,
     catchRate_ = catchRate;
 }
 
-Pokemon::Pokemon(size_t dexID) {
+Pokemon::Pokemon(double dexID) {
     bool finished = false;
     fstream read;
-    read.open(Pokedex.csv);
-    std::vector<std::string>> pokemon;
+    read.open("../../data/Pokedex.csv");
+    vector<string> pokemon;
     string line;
     string curr;
     string val;
     while(read >> curr && finished == false) {
         getline(read, line);
-        stringsteam p(line);
+        stringstream p(line);
         while(getline(p, val, ',')) {
             pokemon.push_back(val);
         }
         int curr_pokemon = stoi(pokemon[0]);
         pokemon.clear();
         if (dexID == curr_pokemon) {
-            pokedexID_ = pokemon[1];
+            pokedexID_ = stod(pokemon[1]);
             name_ = pokemon[2];
-            gen_ = pokemon[5];
+            gen_ = stod(pokemon[5]);
             status_ = pokemon[6];
             species_ = pokemon[7];
             typeOne_ = pokemon[9];
             typeTwo_ = pokemon[10];
-            height_ = pokemon[11];
-            weight_ = pokemon[12];
-            catchRate_ = pokemon[24];
+            height_ = stod(pokemon[11]);
+            weight_ = stod(pokemon[12]);
+            catchRate_ = stod(pokemon[24]);
             finished = true;
         }
     }
 }
 
-size_t Pokemon::getDexID() {
+double Pokemon::getDexID() {
     return pokedexID_;
 }
 
@@ -76,7 +80,7 @@ string Pokemon::getT2() {
     return test2;
 }
 
-size_t Pokemon::getGen() {
+double Pokemon::getGen() {
     return gen_;
 }
 
@@ -96,14 +100,14 @@ string Pokemon::getType2() {
     return typeTwo_;
 }
 
-size_t Pokemon::getHeight() {
+double Pokemon::getHeight() {
     return height_;
 }
 
-size_t Pokemon::getWeight() {
+double Pokemon::getWeight() {
     return weight_;
 }
 
-size_t Pokemon::getCatchRate() {
+double Pokemon::getCatchRate() {
     return catchRate_;
 }

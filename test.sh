@@ -2,9 +2,19 @@
 
 # This is a shell script to run all tests sequentially.
 
-TEST_PARSING="tests"
+TEST_POKEMON="test-pokemon"
+TEST_GRAPH="test-graph"
 
-echo "Testing Parsing"
-cd tests/
-./$TEST_PARSING
+echo "Testing Pokemon"
+cd pokemon_testing/src
+make pokemon
+cd ..
+./$TEST_POKEMON
+cd ..
+
+echo "Testing Graph"
+cd graph_testing/src
+make graph
+cd ..
+./$TEST_GRAPH
 cd ..
