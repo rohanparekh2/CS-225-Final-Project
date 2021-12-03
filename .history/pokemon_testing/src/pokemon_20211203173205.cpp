@@ -73,7 +73,7 @@ double Pokemon::getDexID() {
 }
 
 string Pokemon::getName() {
-    return name_;
+    return 
 }
 
 double Pokemon::getGen() {
