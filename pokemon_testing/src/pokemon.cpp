@@ -72,12 +72,8 @@ double Pokemon::getDexID() {
     return pokedexID_;
 }
 
-string Pokemon::getT1() {
-    return test1;
-}
-
-string Pokemon::getT2() {
-    return test2;
+string Pokemon::getName() {
+    return 
 }
 
 double Pokemon::getGen() {

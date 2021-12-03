@@ -35,8 +35,6 @@ class Pokemon {
     double getDexID();
 
     string getName();
-    string getT1();
-    string getT2();
 
     double getGen();
     
