@@ -1,0 +1,7 @@
+**CS 225 Final Project Developmental Log (rohanjp2, kdadi2, amart317)**
+
+**First Week:**
+We began working on pokemon.cpp and pokemon.h . Rohan loaded in the data for the pokemon class. Alam created functions and variables for pokemon.h and pokemon.cpp. Kaushal worked on the MakeFile and the porject structure.
+
+**Second Week:**
+
