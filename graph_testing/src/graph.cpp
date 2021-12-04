@@ -3,12 +3,35 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
 vector<string> Graph::BFS(int pokeID) {
     vector<string> list;
-    list.push_back("hi");
+    vector<bool> visited;
+    vector<Edge> edges;
+    visited.assign(verices.size(), false);
+    queue<int> queueID;
+    int currID = pokeID;
+
+    visited[pokeID] = true;
+    queueID.push_back(pokeID);
+
+    while(!queueID.empty()) {
+        currID = queueID.front();
+        list.push_back(verices[currID].getInfo().getName());
+        edges = verices[currID].getEdges;
+        queueID.pop_front();
+
+        for (int i = 0; i < edges.size(); i++) {
+            if (!visited[edges[i].getVertexTwo()]) {
+                visited[edges[i].getVertexTwo()] = true;
+                queueID.push_back(edges[i].getVertexTwo());
+            }
+        }
+    }
+
     return list;
 }
 
