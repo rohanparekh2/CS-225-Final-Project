@@ -6,11 +6,11 @@ Vertex::Vertex() {
 
 Vertex::Vertex(double dexID) {
     ID = dexID;
-    Pokemon::Pokemon poke(dexID);
+    Pokemon poke(dexID);
     pokemon_ = poke;
 }
 
-Pokemon::Pokemon Vertex::getInfo() {
+Pokemon Vertex::getInfo() {
     return pokemon_;
 }
 
@@ -20,12 +20,4 @@ vector<Edge> Vertex::getEdges() {
 
 double Vertex::getID(){
     return ID;
-}
-
-bool Vertex::operator ==(const Vertex& v) {
-    return ID == v.ID;
-}
-
-bool Vertex::operator <(const Vertex& v){
-    return ID < v.ID;
 }

@@ -131,82 +131,271 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test-pokemon
+# Target rules for targets named test
 
 # Build rule for target.
-test-pokemon: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-pokemon
-.PHONY : test-pokemon
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
 
 # fast build rule for target.
-test-pokemon/fast:
-	$(MAKE) $(MAKESILENT) -f pokemon_testing/CMakeFiles/test-pokemon.dir/build.make pokemon_testing/CMakeFiles/test-pokemon.dir/build
-.PHONY : test-pokemon/fast
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
 
 #=============================================================================
-# Target rules for targets named main-pokemon
+# Target rules for targets named main
 
 # Build rule for target.
-main-pokemon: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main-pokemon
-.PHONY : main-pokemon
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-main-pokemon/fast:
-	$(MAKE) $(MAKESILENT) -f pokemon_testing/CMakeFiles/main-pokemon.dir/build.make pokemon_testing/CMakeFiles/main-pokemon.dir/build
-.PHONY : main-pokemon/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 #=============================================================================
-# Target rules for targets named PokemonLib
+# Target rules for targets named FinalProject
 
 # Build rule for target.
-PokemonLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 PokemonLib
-.PHONY : PokemonLib
+FinalProject: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FinalProject
+.PHONY : FinalProject
 
 # fast build rule for target.
-PokemonLib/fast:
-	$(MAKE) $(MAKESILENT) -f pokemon_testing/CMakeFiles/PokemonLib.dir/build.make pokemon_testing/CMakeFiles/PokemonLib.dir/build
-.PHONY : PokemonLib/fast
+FinalProject/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/build
+.PHONY : FinalProject/fast
 
-#=============================================================================
-# Target rules for targets named test-graph
+main.o: main.cpp.o
 
-# Build rule for target.
-test-graph: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-graph
-.PHONY : test-graph
+.PHONY : main.o
 
-# fast build rule for target.
-test-graph/fast:
-	$(MAKE) $(MAKESILENT) -f graph_testing/CMakeFiles/test-graph.dir/build.make graph_testing/CMakeFiles/test-graph.dir/build
-.PHONY : test-graph/fast
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-#=============================================================================
-# Target rules for targets named main-graph
+main.i: main.cpp.i
 
-# Build rule for target.
-main-graph: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main-graph
-.PHONY : main-graph
+.PHONY : main.i
 
-# fast build rule for target.
-main-graph/fast:
-	$(MAKE) $(MAKESILENT) -f graph_testing/CMakeFiles/main-graph.dir/build.make graph_testing/CMakeFiles/main-graph.dir/build
-.PHONY : main-graph/fast
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-#=============================================================================
-# Target rules for targets named GraphLib
+main.s: main.cpp.s
 
-# Build rule for target.
-GraphLib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GraphLib
-.PHONY : GraphLib
+.PHONY : main.s
 
-# fast build rule for target.
-GraphLib/fast:
-	$(MAKE) $(MAKESILENT) -f graph_testing/CMakeFiles/GraphLib.dir/build.make graph_testing/CMakeFiles/GraphLib.dir/build
-.PHONY : GraphLib/fast
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+src/edge.o: src/edge.cpp.o
+
+.PHONY : src/edge.o
+
+# target to build an object file
+src/edge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/edge.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/edge.cpp.o
+.PHONY : src/edge.cpp.o
+
+src/edge.i: src/edge.cpp.i
+
+.PHONY : src/edge.i
+
+# target to preprocess a source file
+src/edge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/edge.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/edge.cpp.i
+.PHONY : src/edge.cpp.i
+
+src/edge.s: src/edge.cpp.s
+
+.PHONY : src/edge.s
+
+# target to generate assembly for a file
+src/edge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/edge.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/edge.cpp.s
+.PHONY : src/edge.cpp.s
+
+src/graph.o: src/graph.cpp.o
+
+.PHONY : src/graph.o
+
+# target to build an object file
+src/graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/graph.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/graph.cpp.o
+.PHONY : src/graph.cpp.o
+
+src/graph.i: src/graph.cpp.i
+
+.PHONY : src/graph.i
+
+# target to preprocess a source file
+src/graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/graph.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/graph.cpp.i
+.PHONY : src/graph.cpp.i
+
+src/graph.s: src/graph.cpp.s
+
+.PHONY : src/graph.s
+
+# target to generate assembly for a file
+src/graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/graph.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/graph.cpp.s
+.PHONY : src/graph.cpp.s
+
+src/pokemon.o: src/pokemon.cpp.o
+
+.PHONY : src/pokemon.o
+
+# target to build an object file
+src/pokemon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/pokemon.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/pokemon.cpp.o
+.PHONY : src/pokemon.cpp.o
+
+src/pokemon.i: src/pokemon.cpp.i
+
+.PHONY : src/pokemon.i
+
+# target to preprocess a source file
+src/pokemon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/pokemon.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/pokemon.cpp.i
+.PHONY : src/pokemon.cpp.i
+
+src/pokemon.s: src/pokemon.cpp.s
+
+.PHONY : src/pokemon.s
+
+# target to generate assembly for a file
+src/pokemon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/pokemon.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/pokemon.cpp.s
+.PHONY : src/pokemon.cpp.s
+
+src/vertex.o: src/vertex.cpp.o
+
+.PHONY : src/vertex.o
+
+# target to build an object file
+src/vertex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/vertex.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/vertex.cpp.o
+.PHONY : src/vertex.cpp.o
+
+src/vertex.i: src/vertex.cpp.i
+
+.PHONY : src/vertex.i
+
+# target to preprocess a source file
+src/vertex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/vertex.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/vertex.cpp.i
+.PHONY : src/vertex.cpp.i
+
+src/vertex.s: src/vertex.cpp.s
+
+.PHONY : src/vertex.s
+
+# target to generate assembly for a file
+src/vertex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/vertex.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/vertex.cpp.s
+.PHONY : src/vertex.cpp.s
+
+tests/test.o: tests/test.cpp.o
+
+.PHONY : tests/test.o
+
+# target to build an object file
+tests/test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.o
+.PHONY : tests/test.cpp.o
+
+tests/test.i: tests/test.cpp.i
+
+.PHONY : tests/test.i
+
+# target to preprocess a source file
+tests/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.i
+.PHONY : tests/test.cpp.i
+
+tests/test.s: tests/test.cpp.s
+
+.PHONY : tests/test.s
+
+# target to generate assembly for a file
+tests/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.s
+.PHONY : tests/test.cpp.s
+
+tests/test_graph.o: tests/test_graph.cpp.o
+
+.PHONY : tests/test_graph.o
+
+# target to build an object file
+tests/test_graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_graph.cpp.o
+.PHONY : tests/test_graph.cpp.o
+
+tests/test_graph.i: tests/test_graph.cpp.i
+
+.PHONY : tests/test_graph.i
+
+# target to preprocess a source file
+tests/test_graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_graph.cpp.i
+.PHONY : tests/test_graph.cpp.i
+
+tests/test_graph.s: tests/test_graph.cpp.s
+
+.PHONY : tests/test_graph.s
+
+# target to generate assembly for a file
+tests/test_graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_graph.cpp.s
+.PHONY : tests/test_graph.cpp.s
+
+tests/test_pokemon.o: tests/test_pokemon.cpp.o
+
+.PHONY : tests/test_pokemon.o
+
+# target to build an object file
+tests/test_pokemon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_pokemon.cpp.o
+.PHONY : tests/test_pokemon.cpp.o
+
+tests/test_pokemon.i: tests/test_pokemon.cpp.i
+
+.PHONY : tests/test_pokemon.i
+
+# target to preprocess a source file
+tests/test_pokemon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_pokemon.cpp.i
+.PHONY : tests/test_pokemon.cpp.i
+
+tests/test_pokemon.s: tests/test_pokemon.cpp.s
+
+.PHONY : tests/test_pokemon.s
+
+# target to generate assembly for a file
+tests/test_pokemon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_pokemon.cpp.s
+.PHONY : tests/test_pokemon.cpp.s
 
 # Help Target
 help:
@@ -216,12 +405,33 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... GraphLib"
-	@echo "... PokemonLib"
-	@echo "... main-graph"
-	@echo "... main-pokemon"
-	@echo "... test-graph"
-	@echo "... test-pokemon"
+	@echo "... FinalProject"
+	@echo "... main"
+	@echo "... test"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... src/edge.o"
+	@echo "... src/edge.i"
+	@echo "... src/edge.s"
+	@echo "... src/graph.o"
+	@echo "... src/graph.i"
+	@echo "... src/graph.s"
+	@echo "... src/pokemon.o"
+	@echo "... src/pokemon.i"
+	@echo "... src/pokemon.s"
+	@echo "... src/vertex.o"
+	@echo "... src/vertex.i"
+	@echo "... src/vertex.s"
+	@echo "... tests/test.o"
+	@echo "... tests/test.i"
+	@echo "... tests/test.s"
+	@echo "... tests/test_graph.o"
+	@echo "... tests/test_graph.i"
+	@echo "... tests/test_graph.s"
+	@echo "... tests/test_pokemon.o"
+	@echo "... tests/test_pokemon.i"
+	@echo "... tests/test_pokemon.s"
 .PHONY : help
 
 

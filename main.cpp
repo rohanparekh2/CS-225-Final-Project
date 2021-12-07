@@ -5,18 +5,10 @@
 #include <typeinfo>
 
 
-using namespace std;
 int main() {
-    vector<Pokemon*> pokeList;
-
-    double i = 0;
-    while (pokeList.size() < 11) {
-        Pokemon *mon = new Pokemon(i);
-        pokeList.push_back(mon);
-        i++;
-    }
+    Pokemon a;
     
-    cout << typeid(pokeList).name() << endl;
+    std::cout << typeid(a).name() << std::endl;
     
     /*
     cout << "pokemon1 name: " << pokeList[0]->getName() << endl;

@@ -11,15 +11,11 @@ Edge::Edge(double v1, double v2, size_t w) {
     weight = w;
 }
 
-bool Edge::operator ==(const Edge& e) {
+bool Edge::operator ==(const Edge& e) const{
     if (vertex1 != e.vertex1 || vertex2 != e.vertex2 || weight != e.weight) {
         return false;
     }
     return true;
-}
-
-bool Edge::operator <(const Edge& e){
-    return weight < e.weight;
 }
 
 double Edge::getVertexOne() {

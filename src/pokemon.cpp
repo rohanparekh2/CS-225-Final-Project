@@ -39,18 +39,23 @@ Pokemon::Pokemon(double dexID, string name, double gen, string status,
 Pokemon::Pokemon(double dexID) {
     bool finished = false;
     fstream read;
-    read.open("../../data/Pokedex.csv");
+    read.open("../data/Pokedex.csv");
     vector<string> pokemon;
     string line;
     string curr;
     string val;
-    while(read >> curr && finished == false) {
+    while(finished == false) {
         getline(read, line);
+        std::cout << "getline" << std::endl;
         stringstream p(line);
+        std::cout << "p" << std::endl;
         while(getline(p, val, ',')) {
             pokemon.push_back(val);
         }
-        int curr_pokemon = stoi(pokemon[0]);
+        std::cout << pokemon[0] << std::endl;
+        std::cout << "stoi" << std::endl;
+        int curr_pokemon = std::stoi(pokemon[0]);
+        std::cout << "stoi" << std::endl;
         pokemon.clear();
         if (dexID == curr_pokemon) {
             pokedexID_ = stod(pokemon[1]);

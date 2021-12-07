@@ -4,7 +4,7 @@
 
 ./test.sh
 
-cd src
-make main
-./main "$@"
-cd ..
+# cd src
+# make main
+# ./main "$@"
+# cd ..
