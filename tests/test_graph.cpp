@@ -142,3 +142,17 @@ TEST_CASE("BFS Negative ID", "[weight=1]") {
 
 	REQUIRE(g.BFS(-1) == r);
 }
+
+TEST_CASE("Test Found IDDFS", "[weight=1]") {
+	Graph g(10);
+	bool b = true;
+
+	REQUIRE(g.IDDFS(1, "Charmander", 8) == b);
+}
+
+TEST_CASE("Test Not Found IDDFS", "[weight=1]") {
+	Graph g(10);
+	bool b = false;
+
+	REQUIRE(g.IDDFS(1, "Charizard", 2) == b);
+}

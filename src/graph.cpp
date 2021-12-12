@@ -34,22 +34,16 @@ vector<string> Graph::BFS(int pokeID) {
 
     vector<bool> visited;
     vector<Edge> vertEdges;
-    visited.assign(vertices.size(), false);
-
     queue<int> queueID;
     int currID = pokeID;
 
+    visited.assign(vertices.size(), false);
     visited.at(currID - 1) = true;
-        //std::cout << "test1.2" << std::endl;
-
     queueID.push(currID);
-
-    //std::cout << "test2" << std::endl;
 
     while (!queueID.empty()) {
         currID = queueID.front();
         list.push_back(vertices[currID - 1].getInfo().getName());
-        //std::cout << "CurrID: " << currID << std::endl;
         
         for (int i = 0; i < edges.size(); i++) {
             if (edges[i].getVertexOne() == currID ||
@@ -59,34 +53,85 @@ vector<string> Graph::BFS(int pokeID) {
         }
         
         queueID.pop();
-
-    //std::cout << "test3" << std::endl;
-//std::cout << "CurrID: " << currID << std::endl;
-
         for (int i = 0; i < vertEdges.size(); i++) {
             if (currID == vertEdges[i].getVertexOne()) {
                 if (!visited[vertEdges[i].getVertexTwo() - 1]) {
-                    //std::cout << "vE::Vet2: " << vertEdges[i].getVertexTwo() << std::endl;
-
                     visited[vertEdges[i].getVertexTwo() - 1] = true;
                     queueID.push(vertEdges[i].getVertexTwo());
                 }
 
             } else {
                 if (!visited[vertEdges[i].getVertexOne() - 1]) {
-                    //std::cout << "vE::Vet1: " << vertEdges[i].getVertexOne() << std::endl;
-
                     visited[vertEdges[i].getVertexOne() - 1] = true;
                     queueID.push(vertEdges[i].getVertexOne());
                 }
-                
             }
         }
     }
-        //std::cout << "test6" << std::endl;
-
-
+    
     return list;
+}
+
+bool Graph::IDDFS(int startPokeID, string target, int maxRange) {
+    int i = 0;
+    bool found = false;
+    
+    while (i < maxRange) {
+        found = depthLimitedSearch(startPokeID, target, i);
+        //std::cout << "loop" << std::endl;
+        i++;
+    }
+    //std::cout << "found: " << found << std::endl;
+
+    return found;
+}
+
+bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
+    int target_value = 0;
+    for (int i = 0; i < nodes.size(); i++) {
+        if (nodes[i].getName() == target) {
+            target_value = nodes[i].getDexID();
+            break;        
+        }
+    }
+
+    //std::cout << "trg val:" << target_value << std::endl;
+    if (target_value == startPokeID) {
+        return true;
+    }
+    if (target_value == 0 || maxRange <= 0) {
+        return false;
+    }
+
+
+    vector<Edge> vertEdges;
+    for (int i = 0; i < edges.size(); i++) {
+        if (edges[i].getVertexOne() == startPokeID ||
+                edges[i].getVertexTwo() == startPokeID) {
+            vertEdges.push_back(edges[i]);
+        }
+    }
+    vector<int> verAdjID;
+    for (int j = 0; j < vertEdges.size(); j++) {
+        if (startPokeID == vertEdges[j].getVertexOne()) {
+            verAdjID.push_back(vertEdges[j].getVertexOne());
+        } else {
+            verAdjID.push_back(vertEdges[j].getVertexTwo());
+        }
+    }
+
+    for (int k = 0; k < verAdjID.size(); k++) {
+        if (depthLimitedSearch(verAdjID[k], target, maxRange - 1)) {
+            return true;
+        }
+    }
+
+
+        
+
+
+
+    return false;
 }
 
 void Graph::insertVertex(double key) {

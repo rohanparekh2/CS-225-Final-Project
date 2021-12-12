@@ -16,6 +16,8 @@ class Graph {
         bool areAdjacent(Vertex v1, Vertex v2);
         std::vector<Edge> incidentEdges(Vertex v);
         vector<string> BFS(int pokeID);
+        bool IDDFS(int startPokeID, string target, int maxRange);
+        bool depthLimitedSearch(int startPokeID, string target, int maxRange);
         void createGraph();
         std::vector<Edge> getEdges();
         std::vector<Vertex> getVertices();

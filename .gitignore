@@ -26,6 +26,7 @@ _deps/
 
 .DS_Store
 pagerank.txt
+referenceCode/
 
 # Precompiled Headers
 *.gch
