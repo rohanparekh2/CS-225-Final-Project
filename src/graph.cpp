@@ -12,9 +12,6 @@ using namespace std;
 Graph::Graph() {
 
 }
-        
-Graph::Graph(std::string file) {
-}
 
 Graph::Graph(size_t size) {
     for (int i = 1; i <= size; i++) {
@@ -25,40 +22,36 @@ Graph::Graph(size_t size) {
 }
 
 vector<string> Graph::BFS(int pokeID) {
-        std::cout << "test0" << std::endl;
-
     vector<string> list;
     if (vertices.empty()){
         list.push_back("GRAPH_IS_EMPTY");
         return list;
     }
-        std::cout << "test0.5" << std::endl;
-
+    if (vertices.size() < pokeID || 0 > pokeID) {
+        list.push_back("POKEMON_ID_NOT_FOUND_IN_GRAPH");
+        return list;
+    }
 
     vector<bool> visited;
     vector<Edge> vertEdges;
     visited.assign(vertices.size(), false);
-        std::cout << "test0.9" << std::endl;
 
     queue<int> queueID;
     int currID = pokeID;
 
-    std::cout << "test1" << std::endl;
-    visited.at(currID) = true;
-        std::cout << "test1.2" << std::endl;
+    visited.at(currID - 1) = true;
+        //std::cout << "test1.2" << std::endl;
 
     queueID.push(currID);
 
-    std::cout << "test2" << std::endl;
+    //std::cout << "test2" << std::endl;
 
     while (!queueID.empty()) {
         currID = queueID.front();
         list.push_back(vertices[currID - 1].getInfo().getName());
-        std::cout << "CurrID: " << currID << std::endl;
+        //std::cout << "CurrID: " << currID << std::endl;
         
         for (int i = 0; i < edges.size(); i++) {
-            std::cout << "edgePair: " << edges[i].getVertexOne() <<
-                    ", " << edges[i].getVertexTwo() << std::endl;
             if (edges[i].getVertexOne() == currID ||
                     edges[i].getVertexTwo() == currID) {
                 vertEdges.push_back(edges[i]);
@@ -67,30 +60,30 @@ vector<string> Graph::BFS(int pokeID) {
         
         queueID.pop();
 
-    std::cout << "test3" << std::endl;
-std::cout << "CurrID: " << currID << std::endl;
+    //std::cout << "test3" << std::endl;
+//std::cout << "CurrID: " << currID << std::endl;
 
         for (int i = 0; i < vertEdges.size(); i++) {
             if (currID == vertEdges[i].getVertexOne()) {
-                if (!visited[vertEdges[i].getVertexTwo()]) {
-                    std::cout << "vE::Vet2: " << vertEdges[i].getVertexTwo() << std::endl;
+                if (!visited[vertEdges[i].getVertexTwo() - 1]) {
+                    //std::cout << "vE::Vet2: " << vertEdges[i].getVertexTwo() << std::endl;
 
-                    visited[vertEdges[i].getVertexTwo()] = true;
+                    visited[vertEdges[i].getVertexTwo() - 1] = true;
                     queueID.push(vertEdges[i].getVertexTwo());
                 }
 
             } else {
-                if (!visited[vertEdges[i].getVertexOne()]) {
-                    std::cout << "vE::Vet1: " << vertEdges[i].getVertexOne() << std::endl;
+                if (!visited[vertEdges[i].getVertexOne() - 1]) {
+                    //std::cout << "vE::Vet1: " << vertEdges[i].getVertexOne() << std::endl;
 
-                    visited[vertEdges[i].getVertexOne()] = true;
+                    visited[vertEdges[i].getVertexOne() - 1] = true;
                     queueID.push(vertEdges[i].getVertexOne());
                 }
                 
             }
         }
     }
-        std::cout << "test6" << std::endl;
+        //std::cout << "test6" << std::endl;
 
 
     return list;
@@ -134,10 +127,17 @@ void Graph::createGraph() {
 
     for (int i = 1; i < nodes.size(); i++) {
         for (int j = i + 1; j <= nodes.size(); j++) {
-            if (nodes[i].getGen() == nodes[j].getGen() || nodes[i].getType1() == nodes[j].getType1()) {
-                insertEdge(vertices[i], vertices[j], count);
+            if (nodes[i - 1].getGen() == nodes[j - 1].getGen() || nodes[i - 1].getType1() == nodes[j - 1].getType1()) {
+                insertEdge(vertices[i - 1], vertices[j - 1], count);
                 count++;
             }
         }
     }
+}
+
+std::vector<Edge> Graph::getEdges() {
+    return edges;
+}
+std::vector<Vertex> Graph::getVertices() {
+    return vertices;
 }

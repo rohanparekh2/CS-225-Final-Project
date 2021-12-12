@@ -38,47 +38,49 @@ Pokemon::Pokemon(double dexID, string name, double gen, string status,
 
 Pokemon::Pokemon(double dexID) {
     bool finished = false;
-    fstream fin;
-    fin.open("data/Pokedex.csv", ios::in);
-    vector<string> row;
-    string line, word, temp;
-    while (fin >> temp && finished == false) {
-        row.clear();
-        getline(fin, line);
-        stringstream s(line);
-        while (getline(s, word, ',')) {
-            row.push_back(word.substr(1));
+    fstream read;
+    read.open("data/Pokedex.csv", ios::in);
+    vector<string> pokemon;
+    string line;
+    string curr;
+    string val;
+    while (read >> curr && finished == false) {
+        pokemon.clear();
+        getline(read, line);
+        stringstream p(line);
+        while (getline(p, val, ',')) {
+            pokemon.push_back(val.substr(1));
         }
-        int curr_pokemon = std::stoi(row[0]);
+        int curr_pokemon = std::stoi(pokemon[0]);
         if (dexID == curr_pokemon) {
-            if (row[0] != ""){
-                pokedexID_ = stod(row[0]);
+            if (pokemon[0] != ""){
+                pokedexID_ = stod(pokemon[0]);
             }
-            //pokedexID_ = stod(row[0]);
-            name_ = row[1];
-            if (row[4] != ""){
-                gen_ = stod(row[4]);
+            //pokedexID_ = stod(pokemon[0]);
+            name_ = pokemon[1];
+            if (pokemon[4] != ""){
+                gen_ = stod(pokemon[4]);
             }
-            //gen_ = stod(row[4]);
-            status_ = row[5];
-            species_ = row[6];
-            typeOne_ = row[8];
-            typeTwo_ = row[9];
-            if (row[10] != ""){
-                height_ = stod(row[10]);
+            //gen_ = stod(pokemon[4]);
+            status_ = pokemon[5];
+            species_ = pokemon[6];
+            typeOne_ = pokemon[8];
+            typeTwo_ = pokemon[9];
+            if (pokemon[10] != ""){
+                height_ = stod(pokemon[10]);
             }
-            //height_ = stod(row[10]);
-            if (row[11] != ""){
-                weight_ = stod(row[11]);
+            //height_ = stod(pokemon[10]);
+            if (pokemon[11] != ""){
+                weight_ = stod(pokemon[11]);
             }
-            //weight_ = stod(row[11]);
-            if (row[23] != ""){
-                catchRate_ = stod(row[23]);
+            //weight_ = stod(pokemon[11]);
+            if (pokemon[23] != ""){
+                catchRate_ = stod(pokemon[23]);
             }
-            //catchRate_ = stod(row[23]);
+            //catchRate_ = stod(pokemon[23]);
             finished = true;
         }
-        row.clear();
+        pokemon.clear();
     }
 }
 
