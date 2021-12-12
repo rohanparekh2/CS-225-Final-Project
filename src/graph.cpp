@@ -2,6 +2,7 @@
 #include "../include/vertex.h"
 #include "../include/edge.h"
 #include "../include/pokemon.h"
+#include "../CImgLib/CImg.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <vector>
@@ -10,7 +11,7 @@
 using namespace std;
 
 Graph::Graph() {
-
+    
 }
 
 Graph::Graph(size_t size) {
@@ -74,16 +75,14 @@ vector<string> Graph::BFS(int pokeID) {
 
 bool Graph::IDDFS(int startPokeID, string target, int maxRange) {
     int i = 0;
-    bool found = false;
     
     while (i < maxRange) {
-        found = depthLimitedSearch(startPokeID, target, i);
-        //std::cout << "loop" << std::endl;
+        if (depthLimitedSearch(startPokeID, target, i)) {
+            return true;
+        }
         i++;
     }
-    //std::cout << "found: " << found << std::endl;
-
-    return found;
+    return false;
 }
 
 bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
@@ -106,6 +105,8 @@ bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
 
     vector<Edge> vertEdges;
     for (int i = 0; i < edges.size(); i++) {
+        std::cout << "edgePair: " << edges[i].getVertexOne() <<
+                    ", " << edges[i].getVertexTwo() << std::endl;
         if (edges[i].getVertexOne() == startPokeID ||
                 edges[i].getVertexTwo() == startPokeID) {
             vertEdges.push_back(edges[i]);
@@ -121,6 +122,7 @@ bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
     }
 
     for (int k = 0; k < verAdjID.size(); k++) {
+        std::cout << "newStartID: " << verAdjID[k]<< std::endl; 
         if (depthLimitedSearch(verAdjID[k], target, maxRange - 1)) {
             return true;
         }

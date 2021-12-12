@@ -6,60 +6,23 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include "CImgLib/CImg.h"
 
+using namespace cimg_library;
 
 int main() {
-    std::cout << "a" << std::endl;
-    fstream fin;
-  
-    // Open an existing file
-    fin.open("data/Pokedex.csv", ios::in);
-    std::cout << "b" << std::endl;
-  
-    // Read the Data from the file
-    // as String Vector
-    vector<string> row;
-    std::cout << "c" << std::endl;
-    string line, word, temp;
-    std::cout << "d" << std::endl;
-  
-    while (fin >> temp) {
-        std::cout << "e" << std::endl;
-  
-        row.clear();
-  
-        // read an entire row and
-        // store it in a string variable 'line'
-        getline(fin, line);
-        std::cout << line << std::endl;
-        //std::cout << fin << std::endl;
-  
-        // used for breaking words
-        stringstream s(line);
-  
-        // read every column data of a row and
-        // store it in a string variable, 'word'
-        while (getline(s, word, '\n')) {
-  
-            // add all the column data
-            // of a row to a vector
-            row.push_back(word);
-            std::cout << word << std::endl;
-        }
-
-        getline(fin, line);
-        //std::cout << fin << std::endl;
-  
-        // used for breaking words
-        //stringstream s(line);
-        while (getline(s, word, '\n')) {
-  
-            // add all the column data
-            // of a row to a vector
-            row.push_back(word);
-            std::cout << word << std::endl;
-        }
-
+  CImg<unsigned char> image("bob.jpeg"), visu(500,400,1,3,0);
+  const unsigned char red[] = { 255,0,0 }, green[] = { 0,255,0 }, blue[] = { 0,0,255 };
+  image.blur(2.5);
+  CImgDisplay main_disp(image,"Click a point"), draw_disp(visu,"Intensity profile");
+  while (!main_disp.is_closed() && !draw_disp.is_closed()) {
+    main_disp.wait();
+    if (main_disp.button() && main_disp.mouse_y()>=0) {
+      const int y = main_disp.mouse_y();
+      visu.fill(0).draw_graph(image.get_crop(0,y,0,0,image.width()-1,y,0,0),red,1,1,0,255,0);
+      visu.draw_graph(image.get_crop(0,y,0,1,image.width()-1,y,0,1),green,1,1,0,255,0);
+      visu.draw_graph(image.get_crop(0,y,0,2,image.width()-1,y,0,2),blue,1,1,0,255,0).display(draw_disp);
+      }
     }
-    return 0;
+  return 0;
 }

@@ -68,10 +68,10 @@ RM = /usr/bin/cmake3 -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317
+CMAKE_SOURCE_DIR = /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317
+CMAKE_BINARY_DIR = /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -196,6 +196,66 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/HSLAPixel.o: src/HSLAPixel.cpp.o
+
+.PHONY : src/HSLAPixel.o
+
+# target to build an object file
+src/HSLAPixel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/HSLAPixel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/HSLAPixel.cpp.o
+.PHONY : src/HSLAPixel.cpp.o
+
+src/HSLAPixel.i: src/HSLAPixel.cpp.i
+
+.PHONY : src/HSLAPixel.i
+
+# target to preprocess a source file
+src/HSLAPixel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/HSLAPixel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/HSLAPixel.cpp.i
+.PHONY : src/HSLAPixel.cpp.i
+
+src/HSLAPixel.s: src/HSLAPixel.cpp.s
+
+.PHONY : src/HSLAPixel.s
+
+# target to generate assembly for a file
+src/HSLAPixel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/HSLAPixel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/HSLAPixel.cpp.s
+.PHONY : src/HSLAPixel.cpp.s
+
+src/PNG.o: src/PNG.cpp.o
+
+.PHONY : src/PNG.o
+
+# target to build an object file
+src/PNG.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/PNG.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/PNG.cpp.o
+.PHONY : src/PNG.cpp.o
+
+src/PNG.i: src/PNG.cpp.i
+
+.PHONY : src/PNG.i
+
+# target to preprocess a source file
+src/PNG.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/PNG.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/PNG.cpp.i
+.PHONY : src/PNG.cpp.i
+
+src/PNG.s: src/PNG.cpp.s
+
+.PHONY : src/PNG.s
+
+# target to generate assembly for a file
+src/PNG.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/PNG.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/PNG.cpp.s
+.PHONY : src/PNG.cpp.s
+
 src/edge.o: src/edge.cpp.o
 
 .PHONY : src/edge.o
@@ -255,6 +315,36 @@ src/graph.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/graph.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/graph.cpp.s
 .PHONY : src/graph.cpp.s
+
+src/lodepng.o: src/lodepng.cpp.o
+
+.PHONY : src/lodepng.o
+
+# target to build an object file
+src/lodepng.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/lodepng.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/lodepng.cpp.o
+.PHONY : src/lodepng.cpp.o
+
+src/lodepng.i: src/lodepng.cpp.i
+
+.PHONY : src/lodepng.i
+
+# target to preprocess a source file
+src/lodepng.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/lodepng.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/lodepng.cpp.i
+.PHONY : src/lodepng.cpp.i
+
+src/lodepng.s: src/lodepng.cpp.s
+
+.PHONY : src/lodepng.s
+
+# target to generate assembly for a file
+src/lodepng.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/lodepng.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/lodepng.cpp.s
+.PHONY : src/lodepng.cpp.s
 
 src/pokemon.o: src/pokemon.cpp.o
 
@@ -411,12 +501,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/HSLAPixel.o"
+	@echo "... src/HSLAPixel.i"
+	@echo "... src/HSLAPixel.s"
+	@echo "... src/PNG.o"
+	@echo "... src/PNG.i"
+	@echo "... src/PNG.s"
 	@echo "... src/edge.o"
 	@echo "... src/edge.i"
 	@echo "... src/edge.s"
 	@echo "... src/graph.o"
 	@echo "... src/graph.i"
 	@echo "... src/graph.s"
+	@echo "... src/lodepng.o"
+	@echo "... src/lodepng.i"
+	@echo "... src/lodepng.s"
 	@echo "... src/pokemon.o"
 	@echo "... src/pokemon.i"
 	@echo "... src/pokemon.s"
