@@ -17,9 +17,11 @@ class Graph {
         bool areAdjacent(Vertex v1, Vertex v2);
         std::vector<Edge> incidentEdges(Vertex v);
         vector<string> BFS(int pokeID);
+        void createGraph();
     private:
         std::vector<Vertex> vertices;
         std::vector<Edge> edges;
+        std::vector<Pokemon> nodes;
         
 
 };

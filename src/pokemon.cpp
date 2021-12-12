@@ -38,38 +38,47 @@ Pokemon::Pokemon(double dexID, string name, double gen, string status,
 
 Pokemon::Pokemon(double dexID) {
     bool finished = false;
-    fstream read;
-    read.open("../data/Pokedex.csv");
-    vector<string> pokemon;
-    string line;
-    string curr;
-    string val;
-    while(finished == false) {
-        getline(read, line);
-        std::cout << "getline" << std::endl;
-        stringstream p(line);
-        std::cout << "p" << std::endl;
-        while(getline(p, val, ',')) {
-            pokemon.push_back(val);
+    fstream fin;
+    fin.open("data/Pokedex.csv", ios::in);
+    vector<string> row;
+    string line, word, temp;
+    while (fin >> temp && finished == false) {
+        row.clear();
+        getline(fin, line);
+        stringstream s(line);
+        while (getline(s, word, ',')) {
+            row.push_back(word.substr(1));
         }
-        std::cout << pokemon[0] << std::endl;
-        std::cout << "stoi" << std::endl;
-        int curr_pokemon = std::stoi(pokemon[0]);
-        std::cout << "stoi" << std::endl;
-        pokemon.clear();
+        int curr_pokemon = std::stoi(row[0]);
         if (dexID == curr_pokemon) {
-            pokedexID_ = stod(pokemon[1]);
-            name_ = pokemon[2];
-            gen_ = stod(pokemon[5]);
-            status_ = pokemon[6];
-            species_ = pokemon[7];
-            typeOne_ = pokemon[9];
-            typeTwo_ = pokemon[10];
-            height_ = stod(pokemon[11]);
-            weight_ = stod(pokemon[12]);
-            catchRate_ = stod(pokemon[24]);
+            if (row[0] != ""){
+                pokedexID_ = stod(row[0]);
+            }
+            //pokedexID_ = stod(row[0]);
+            name_ = row[1];
+            if (row[4] != ""){
+                gen_ = stod(row[4]);
+            }
+            //gen_ = stod(row[4]);
+            status_ = row[5];
+            species_ = row[6];
+            typeOne_ = row[8];
+            typeTwo_ = row[9];
+            if (row[10] != ""){
+                height_ = stod(row[10]);
+            }
+            //height_ = stod(row[10]);
+            if (row[11] != ""){
+                weight_ = stod(row[11]);
+            }
+            //weight_ = stod(row[11]);
+            if (row[23] != ""){
+                catchRate_ = stod(row[23]);
+            }
+            //catchRate_ = stod(row[23]);
             finished = true;
         }
+        row.clear();
     }
 }
 

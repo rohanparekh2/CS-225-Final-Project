@@ -1,27 +1,65 @@
 #include <iostream>
-
-#include <vector>
 #include "include/pokemon.h"
-#include <typeinfo>
+#include <vector>
+#include <string>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
 
 int main() {
-    Pokemon a;
-    
-    std::cout << typeid(a).name() << std::endl;
-    
-    /*
-    cout << "pokemon1 name: " << pokeList[0]->getName() << endl;
-    cout << "pokemon2 name: " << pokeList[1]->getName() << endl;
-    cout << "pokemon3 name: " << pokeList[2]->getName() << endl;
-    cout << "pokemon4 gen: " << pokeList[3]->getGen() << endl;
-    cout << "pokemon5 gen: " << pokeList[4]->getGen() << endl;
-    cout << "pokemon6 gen: " << pokeList[5]->getGen() << endl;
-    cout << "pokemon7 height_: " << pokeList[6]->getHeight() << endl;
-    cout << "pokemon8 height_: " << pokeList[7]->getHeight() << endl;
-    */
-    
-    //cout << "pokemon10 height_: " << 69422 << endl;
+    std::cout << "a" << std::endl;
+    fstream fin;
+  
+    // Open an existing file
+    fin.open("data/Pokedex.csv", ios::in);
+    std::cout << "b" << std::endl;
+  
+    // Read the Data from the file
+    // as String Vector
+    vector<string> row;
+    std::cout << "c" << std::endl;
+    string line, word, temp;
+    std::cout << "d" << std::endl;
+  
+    while (fin >> temp) {
+        std::cout << "e" << std::endl;
+  
+        row.clear();
+  
+        // read an entire row and
+        // store it in a string variable 'line'
+        getline(fin, line);
+        std::cout << line << std::endl;
+        //std::cout << fin << std::endl;
+  
+        // used for breaking words
+        stringstream s(line);
+  
+        // read every column data of a row and
+        // store it in a string variable, 'word'
+        while (getline(s, word, '\n')) {
+  
+            // add all the column data
+            // of a row to a vector
+            row.push_back(word);
+            std::cout << word << std::endl;
+        }
 
+        getline(fin, line);
+        //std::cout << fin << std::endl;
+  
+        // used for breaking words
+        //stringstream s(line);
+        while (getline(s, word, '\n')) {
+  
+            // add all the column data
+            // of a row to a vector
+            row.push_back(word);
+            std::cout << word << std::endl;
+        }
+
+    }
     return 0;
 }
