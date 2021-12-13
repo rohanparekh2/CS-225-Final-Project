@@ -3,6 +3,8 @@
 #include "vertex.h"
 #include "edge.h"
 #include "pokemon.h"
+#include "StickerSheet.h"
+#include "Image.h"
 
 
 using namespace std;
@@ -21,10 +23,13 @@ class Graph {
         void createGraph();
         std::vector<Edge> getEdges();
         std::vector<Vertex> getVertices();
+        void drawGraph();
+        
     private:
         std::vector<Vertex> vertices;
         std::vector<Edge> edges;
         std::vector<Pokemon> nodes;
-        
+
+        size_t typeToNum(string type);
 
 };

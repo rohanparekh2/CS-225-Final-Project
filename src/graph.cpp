@@ -2,11 +2,12 @@
 #include "../include/vertex.h"
 #include "../include/edge.h"
 #include "../include/pokemon.h"
-#include "../CImgLib/CImg.h"
+#include "../include/StickerSheet.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <vector>
 #include <queue>
+#include <math.h>
 
 using namespace std;
 
@@ -94,7 +95,6 @@ bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
         }
     }
 
-    //std::cout << "trg val:" << target_value << std::endl;
     if (target_value == startPokeID) {
         return true;
     }
@@ -102,11 +102,8 @@ bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
         return false;
     }
 
-
     vector<Edge> vertEdges;
     for (int i = 0; i < edges.size(); i++) {
-        std::cout << "edgePair: " << edges[i].getVertexOne() <<
-                    ", " << edges[i].getVertexTwo() << std::endl;
         if (edges[i].getVertexOne() == startPokeID ||
                 edges[i].getVertexTwo() == startPokeID) {
             vertEdges.push_back(edges[i]);
@@ -115,24 +112,18 @@ bool Graph::depthLimitedSearch(int startPokeID, string target, int maxRange) {
     vector<int> verAdjID;
     for (int j = 0; j < vertEdges.size(); j++) {
         if (startPokeID == vertEdges[j].getVertexOne()) {
-            verAdjID.push_back(vertEdges[j].getVertexOne());
-        } else {
             verAdjID.push_back(vertEdges[j].getVertexTwo());
+        } else {
+            verAdjID.push_back(vertEdges[j].getVertexOne());
         }
     }
 
     for (int k = 0; k < verAdjID.size(); k++) {
-        std::cout << "newStartID: " << verAdjID[k]<< std::endl; 
         if (depthLimitedSearch(verAdjID[k], target, maxRange - 1)) {
             return true;
         }
     }
-
-
-        
-
-
-
+    
     return false;
 }
 
@@ -180,6 +171,86 @@ void Graph::createGraph() {
             }
         }
     }
+}
+
+void Graph::drawGraph() {
+    size_t w = 8 * 20;
+    size_t h = 18 * 20;
+    
+    Image sheet;
+    Image sticker;
+    sheet.resize(w, h);
+    sheet.readFromFile("resources/white.png");
+    
+    StickerSheet background(sheet, nodes.size() + 1);
+
+    for (int i = 0; i < nodes.size(); i++) {
+        sticker.resize(20,20);
+        sticker.readFromFile("resources/circle.png");
+        sticker.scale(0.1);
+
+        background.addSticker(sticker, nodes[i].getGen() * 20, typeToNum(nodes[i].getType1()) * 20);
+    }
+    Image final = background.render();
+    final.writeToFile("myImage.png");
+}
+
+size_t Graph::typeToNum(string type) {
+    if (type == "Grass") {
+        return 1;
+    }
+    if (type == "Fire") {
+        return 2;
+    }
+    if (type == "Water") {
+        return 3;
+    }
+    if (type == "Normal") {
+        return 4;
+    }
+    if (type == "Fighting") {
+        return 5;
+    }
+    if (type == "Flying") {
+        return 6;
+    }
+    if (type == "Poison") {
+        return 7;
+    }
+    if (type == "Electric") {
+        return 8;
+    }
+    if (type == "Ground") {
+        return 9;
+    }
+    if (type == "Rock") {
+        return 10;
+    }
+    if (type == "Psychic") {
+        return 11;
+    }
+    if (type == "Ice") {
+        return 12;
+    }
+    if (type == "Bug") {
+        return 13;
+    }
+    if (type == "Ghost") {
+        return 14;
+    }
+    if (type == "Steel") {
+        return 15;
+    }
+    if (type == "Dragon") {
+        return 16;
+    }
+    if (type == "Dark") {
+        return 17;
+    }
+    if (type == "Fairy") {
+        return 18;
+    }
+    return 0;
 }
 
 std::vector<Edge> Graph::getEdges() {

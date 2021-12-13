@@ -151,8 +151,29 @@ TEST_CASE("Test Found IDDFS", "[weight=1]") {
 }
 
 TEST_CASE("Test Not Found IDDFS", "[weight=1]") {
-	Graph g(10);
+	Graph g(480);
 	bool b = false;
 
-	REQUIRE(g.IDDFS(1, "Charizard", 2) == b);
+	REQUIRE(g.IDDFS(1, "Spiritomb", 2) == b);
+}
+
+TEST_CASE("Test Found IDDFS Big", "[weight=1]") {
+	Graph g(600);
+	bool b = true;
+
+	REQUIRE(g.IDDFS(1, "Spiritomb", 3) == b);
+}
+
+TEST_CASE("Test IDDFS Different Start Found", "[weight=1]") {
+	Graph g(600);
+	bool b = true;
+
+	REQUIRE(g.IDDFS(255, "Emboar", 2) == b);
+}
+
+TEST_CASE("Test IDDFS Different Start Not Found", "[weight=1]") {
+	Graph g(700);
+	bool b = false;
+
+	REQUIRE(g.IDDFS(333, "Inkay", 1) == b);
 }

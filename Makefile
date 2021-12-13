@@ -226,6 +226,36 @@ src/HSLAPixel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/HSLAPixel.cpp.s
 .PHONY : src/HSLAPixel.cpp.s
 
+src/Image.o: src/Image.cpp.o
+
+.PHONY : src/Image.o
+
+# target to build an object file
+src/Image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Image.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/Image.cpp.o
+.PHONY : src/Image.cpp.o
+
+src/Image.i: src/Image.cpp.i
+
+.PHONY : src/Image.i
+
+# target to preprocess a source file
+src/Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Image.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/Image.cpp.i
+.PHONY : src/Image.cpp.i
+
+src/Image.s: src/Image.cpp.s
+
+.PHONY : src/Image.s
+
+# target to generate assembly for a file
+src/Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/Image.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/Image.cpp.s
+.PHONY : src/Image.cpp.s
+
 src/PNG.o: src/PNG.cpp.o
 
 .PHONY : src/PNG.o
@@ -255,6 +285,36 @@ src/PNG.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/PNG.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/PNG.cpp.s
 .PHONY : src/PNG.cpp.s
+
+src/StickerSheet.o: src/StickerSheet.cpp.o
+
+.PHONY : src/StickerSheet.o
+
+# target to build an object file
+src/StickerSheet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/StickerSheet.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/StickerSheet.cpp.o
+.PHONY : src/StickerSheet.cpp.o
+
+src/StickerSheet.i: src/StickerSheet.cpp.i
+
+.PHONY : src/StickerSheet.i
+
+# target to preprocess a source file
+src/StickerSheet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/StickerSheet.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/StickerSheet.cpp.i
+.PHONY : src/StickerSheet.cpp.i
+
+src/StickerSheet.s: src/StickerSheet.cpp.s
+
+.PHONY : src/StickerSheet.s
+
+# target to generate assembly for a file
+src/StickerSheet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/StickerSheet.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FinalProject.dir/build.make CMakeFiles/FinalProject.dir/src/StickerSheet.cpp.s
+.PHONY : src/StickerSheet.cpp.s
 
 src/edge.o: src/edge.cpp.o
 
@@ -504,9 +564,15 @@ help:
 	@echo "... src/HSLAPixel.o"
 	@echo "... src/HSLAPixel.i"
 	@echo "... src/HSLAPixel.s"
+	@echo "... src/Image.o"
+	@echo "... src/Image.i"
+	@echo "... src/Image.s"
 	@echo "... src/PNG.o"
 	@echo "... src/PNG.i"
 	@echo "... src/PNG.s"
+	@echo "... src/StickerSheet.o"
+	@echo "... src/StickerSheet.i"
+	@echo "... src/StickerSheet.s"
 	@echo "... src/edge.o"
 	@echo "... src/edge.i"
 	@echo "... src/edge.s"
