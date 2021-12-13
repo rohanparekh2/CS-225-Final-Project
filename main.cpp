@@ -9,7 +9,7 @@
 #include "include/graph.h"
 
 int main() {
-  Graph g(10);
+  Graph g(1027);
   g.drawGraph();
   return 0;
 }

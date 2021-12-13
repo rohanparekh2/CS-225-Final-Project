@@ -4,6 +4,8 @@
 
 ./test.sh
 
+./main
+
 # cd src
 # make main
 # ./main "$@"

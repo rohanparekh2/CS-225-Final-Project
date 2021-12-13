@@ -2,9 +2,6 @@
 
 # This is a shell script to help user run everything for the main method.
 
-#MAIN="src/main"
+./bake.sh
 
-#cd src/
-#./main "$@"
-#cd ..
-#./$MAIN
+./main

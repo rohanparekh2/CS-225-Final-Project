@@ -81,6 +81,7 @@ class Image: public cs225::PNG {
          */
         void scale(unsigned w, unsigned h);
 
+
 	
 	
 

@@ -20,8 +20,6 @@ class Pokemon {
     double height_;
     double weight_;
     double catchRate_;
-    string test1;
-    string test2;
 
   public:
     Pokemon();

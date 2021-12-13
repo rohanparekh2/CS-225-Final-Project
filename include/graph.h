@@ -24,12 +24,18 @@ class Graph {
         std::vector<Edge> getEdges();
         std::vector<Vertex> getVertices();
         void drawGraph();
+        std::vector<std::pair<int,int>> CalculateLocations();
         
     private:
         std::vector<Vertex> vertices;
         std::vector<Edge> edges;
         std::vector<Pokemon> nodes;
-
+        std::vector<std::pair<int, int>> locations;
+        int width_;
+        int height_;
         size_t typeToNum(string type);
-
+        int statusToNum(string status);
+        void checkOverLap(std::pair<int, int> newLocat);
+        double typeToColor(string type);
+        void createImages(Image& i, std::string type);
 };

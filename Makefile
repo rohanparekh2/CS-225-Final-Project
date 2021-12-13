@@ -68,10 +68,10 @@ RM = /usr/bin/cmake3 -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317
+CMAKE_SOURCE_DIR = /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317
+CMAKE_BINARY_DIR = /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kdadi2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rohanjp2/cs225git/rohanjp2-kdadi2-amart317/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
