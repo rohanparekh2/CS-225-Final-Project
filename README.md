@@ -4,7 +4,7 @@ Contributors: Alam Martinez, Rohan Parekh, Kaushal Dadi
 ## Overview
 Our project looks at the dataset of all pokemon from gen 1 to gen 8 and all their region forms. We got this data set from https://www.kaggle.com/mariotormo/complete-pokemon-dataset-updated-090420, the data format was in a CSV file, which we read and turn into a vector of Pokemon Objects holding numerous pokemon stats. We made these Pokemons into vertices and allows the egdes of these vertices to be pokemons' generation and primary type. Our goal was to see the similarities between generation and pokemons' stats.
 
-Our presentation video: 
+Our presentation video: https://youtu.be/s9EcpQwV1tE 
 
 All testing and running of our code can be done within the individual test case files, found under the *tests* folder. The data is under the *data* folder, all **.h** files are under *include*, and all **.cpp** are under *src*. To run the test cases you run **./run.sh**, you can instead run main using **./main** in order to run the main file and run the drawing graph function to display the dataset.
 - - - -
