@@ -19,18 +19,18 @@ The Pokemon file holds a object of pokemon with the stats, name, gen, dexID, typ
 The Graph is taken care of in 3 files, that take care of the vertices, edges and how to build and travel the graph. Vertex class allows us to hold the ID of the pokemon and info to act as a vertex, the Edge class can store two vertices' ID to create a edge and allows us to creat the graph. The graph class has a number of methods that allows us to create a graph based on how many pokemon the user wants, how to travel the graph and drawing the graph. Along with helper methods that help find the vertices or edges or colors needed
 - - - -
 ## Breadth First Search (BFS)
-### ### Files: Graph.h/.cpp
+### Files: Graph.h/.cpp
 
 The BFS algorithm searchs the created graph from a given starting pokemon ID. This algorithm searchs every edge connected to our starting pokemon vertex, making sure not to revisit already visited vertices and adding the new undiscover vertices in a list. This search looks through all vertices and returns a vector of the pokemon names, which are connected to the vertices, in the BFS order. 
 - - - -
 ## Iterative Deepening Depth First Search (IDDFS)
-### ### Files: Graph.h/.cpp
+### Files: Graph.h/.cpp
 
 The IDDFS algorithm seraches the created graph from a given starting vertex and searchs for a target vertex. There is maximum range parameter that checks if the target vertex is found in the given number of searches. IDDFS has its own helper function that recursively calls itself until the number of searches left is at 0 or the target node is found. The search always begins at the starting node, even after mutliple nodes have been disovered.
 
 - - - -
 ## Force Directed Graph
-### ### Files: Graph.h/.cpp
+### Files: Graph.h/.cpp
 
 The Force Directed Graph algorithim uses 6 helper functions to correctly determine and draw the locations of the vertices of each pokemon on the graph. The function that creates the Force Directed Graph, drawGraph, utilizes the Image manipulation classes we created in previous mps and labs to draw circle onto a Sticker Sheet. Once the location a Vertice is found we then put it into another function to check whether there is any overlap with o;der Vertices. If so, we randomize and move the Vertice next to that pre-existing Vertice. Next we color the Vertice depending on the type and place each vertice as a sticker onto the StickerSheet. We finally render the complete image and write the resulted image to *MyImage.png*
 
