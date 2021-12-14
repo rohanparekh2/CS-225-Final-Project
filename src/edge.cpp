@@ -1,10 +1,5 @@
 #include "../include/edge.h"
 
-
-Edge::Edge() {
-
-}
-
 Edge::Edge(double v1, double v2, size_t w) {
     vertex1 = v1;
     vertex2 = v2;

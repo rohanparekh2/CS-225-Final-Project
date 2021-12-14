@@ -217,115 +217,6 @@ void Graph::drawGraph() {
     createImages(i17, "Dark");
     Image i18;
     createImages(i18, "Fairy");
-
-    /*Image i1;
-    i1.readFromFile("resources/circle.png");
-    i1.scale(0.05);
-    i1.saturate(1);
-    i1.lighten(0.5);
-    i1.rotateColor(typeToColor("Grass"));
-    Image i2;
-    i2.readFromFile("resources/circle.png");
-    i2.scale(0.05);
-    i2.saturate(1);
-    i2.lighten(0.5);
-    i2.rotateColor(typeToColor("Fire"));
-    Image i3;
-    i3.readFromFile("resources/circle.png");
-    i3.scale(0.05);
-    i3.saturate(1);
-    i3.lighten(0.5);
-    i3.rotateColor(typeToColor("Water"));
-    Image i4;
-    i4.readFromFile("resources/circle.png");
-    i4.scale(0.05);
-    i4.saturate(1);
-    i4.lighten(0.5);
-    i4.rotateColor(typeToColor("Normal"));
-    Image i5;
-    i5.readFromFile("resources/circle.png");
-    i5.scale(0.05);
-    i5.saturate(1);
-    i5.lighten(0.5);
-    i5.rotateColor(typeToColor("Fighting"));
-    Image i6;
-    i6.readFromFile("resources/circle.png");
-    i6.scale(0.05);
-    i6.saturate(1);
-    i6.lighten(0.5);
-    i6.rotateColor(typeToColor("Flying"));
-    Image i7;
-    i7.readFromFile("resources/circle.png");
-    i7.scale(0.05);
-    i7.saturate(1);
-    i7.lighten(0.5);
-    i7.rotateColor(typeToColor("Poison"));
-    Image i8;
-    i8.readFromFile("resources/circle.png");
-    i8.scale(0.05);
-    i8.saturate(1);
-    i8.lighten(0.5);
-    i8.rotateColor(typeToColor("Electric"));
-    Image i9;
-    i9.readFromFile("resources/circle.png");
-    i9.scale(0.05);
-    i9.saturate(1);
-    i9.lighten(0.5);
-    i9.rotateColor(typeToColor("Ground"));
-    Image i10;
-    i10.readFromFile("resources/circle.png");
-    i10.scale(0.05);
-    i10.saturate(1);
-    i10.lighten(0.5);
-    i10.rotateColor(typeToColor("Rock"));
-    Image i11;
-    i11.readFromFile("resources/circle.png");
-    i11.scale(0.05);
-    i11.saturate(1);
-    i11.lighten(0.5);
-    i11.rotateColor(typeToColor("Psychic"));
-    Image i12;
-    i12.readFromFile("resources/circle.png");
-    i12.scale(0.05);
-    i12.saturate(1);
-    i12.lighten(0.5);
-    i12.rotateColor(typeToColor("Ice"));
-    Image i13;
-    i13.readFromFile("resources/circle.png");
-    i13.scale(0.05);
-    i13.saturate(1);
-    i13.lighten(0.5);
-    i13.rotateColor(typeToColor("Bug"));
-    Image i14;
-    i14.readFromFile("resources/circle.png");
-    i14.scale(0.05);
-    i14.saturate(1);
-    i14.lighten(0.5);
-    i14.rotateColor(typeToColor("Ghost"));
-    Image i15;
-    i15.readFromFile("resources/circle.png");
-    i15.scale(0.05);
-    i15.saturate(1);
-    i15.lighten(0.5);
-    i15.rotateColor(typeToColor("Steel"));
-    Image i16;
-    i16.readFromFile("resources/circle.png");
-    i16.scale(0.05);
-    i16.saturate(1);
-    i16.lighten(0.5);
-    i16.rotateColor(typeToColor("Dragon"));
-    Image i17;
-    i17.readFromFile("resources/circle.png");
-    i17.scale(0.05);
-    i17.saturate(1);
-    i17.lighten(0.5);
-    i17.rotateColor(typeToColor("Dark"));
-    Image i18;
-    i18.readFromFile("resources/circle.png");
-    i18.scale(0.05);
-    i18.saturate(1);
-    i18.lighten(0.5);
-    i18.rotateColor(typeToColor("Fairy"));*/
     
     sheet.resize(width_, height_);
     
@@ -333,14 +224,7 @@ void Graph::drawGraph() {
     CalculateLocations();
 
     for (int i = 0; i < nodes.size(); i++) {
-        //sticker.readFromFile("resources/circle.png");
-        //sticker.scale(0.05);
         double value = typeToColor(nodes[i].getType1());
-        //std::cout << "drawing value : " << value << std::endl;
-
-        /*sticker.saturate(1);
-        sticker.lighten(0.5);
-        sticker.changeColor(value);*/
         switch ((int)value) {
             case 15:
                 background.addSticker(i1, locations[i].first, locations[i].second);
@@ -397,18 +281,6 @@ void Graph::drawGraph() {
                 background.addSticker(i18, locations[i].first, locations[i].second);
                 break;
         }
-        //background.addSticker(sticker, locations[i].first, locations[i].second);
-
-        //finals = background.render();
-
-        //StickerSheet background(finals, i);
-        // Change pixel color to match type
-
-        //std::cout << locations[i].first << ",   " << locations[i].second << std::endl;
-
-        //background.addSticker(sticker, nodes[i].getGen() * 20, typeToNum(nodes[i].getType1()) * 20);
-        
-        //cout << "Pokemon: " << nodes[i].getName() << ", Gen: " << nodes[i].getGen() << ", First Type: " << typeToNum(nodes[i].getType1())  << std::endl;
     }
     finals = background.render();
     finals.writeToFile("myImage.png");
@@ -473,11 +345,11 @@ size_t Graph::typeToNum(string type) {
 }
 
 std::vector<std::pair<int, int>> Graph::CalculateLocations() {
-    
     std::pair<int, int> start(width_/4, height_/4);
     locations.push_back(start);
     int gen_diff;
     int status_diff;
+
     for (int i = 1; i < nodes.size(); i++) {
         gen_diff = 3*(nodes[i].getGen() - nodes[0].getGen());
         status_diff = statusToNum(nodes[i].getStatus()) - statusToNum(nodes[0].getStatus());
@@ -507,7 +379,7 @@ void Graph::checkOverLap(std::pair<int, int> newLocat) {
             bool repeat = true;
             while(repeat) {       
                 repeat = false; 
-                int randNum = rand() % 4;
+                int randNum = rand() % 4; // using rand() instead of count improves speeds
 
                 switch (randNum) {
                     case 0:
@@ -540,7 +412,6 @@ void Graph::checkOverLap(std::pair<int, int> newLocat) {
 
 double Graph::typeToColor(string type) {
     int rotate = typeToNum(type);
-    //std::cout << "typeNUM: " << rotate << std::endl;
     double value = 0;
     switch (rotate) {
         case 1:
@@ -599,10 +470,7 @@ double Graph::typeToColor(string type) {
             break;
     }
 
-    //std::cout << "value: " << value << std::endl;
-
     return value; 
-    //return 0;
 }
 
 

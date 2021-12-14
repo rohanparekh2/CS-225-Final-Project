@@ -25,17 +25,6 @@ TEST_CASE("test vertex", "[weight=1]") {
 	REQUIRE(v.getID() == 52.0);
 }
 
-/*TEST_CASE("test vertices", "[weight=1]") {
-	Graph g1(10);
-	std::vector<std::string> r = {"Zacian", "Zamazenta", "Eternatus"};
-	for (int i = 0; i < g1.getEdges().size(); i++) {
-		std::cout << "edgePair: " << g1.getEdges()[i].getVertexOne() <<
-                    ", " << g1.getEdges()[i].getVertexTwo() << std::endl;
-
-	}
-}*/
-
-
 TEST_CASE("Test BFS", "[weight=1]") {
 	Graph g(10);
 	std::vector<std::string> r = { "Charmeleon", "Bulbasaur", "Ivysaur", "Venusaur", "Charmander",
@@ -44,7 +33,6 @@ TEST_CASE("Test BFS", "[weight=1]") {
 	test = g.BFS(5);
 	REQUIRE(g.BFS(5) == r);
 }
-
 
 TEST_CASE("Test Big BFS", "[weight=1]") {
 	Graph g(420);
@@ -176,4 +164,29 @@ TEST_CASE("Test IDDFS Different Start Not Found", "[weight=1]") {
 	bool b = false;
 
 	REQUIRE(g.IDDFS(333, "Inkay", 1) == b);
+}
+
+TEST_CASE("Test Enough Locations", "[weight=1]") {
+	Graph g1(10);
+  Graph g2(555);
+  Graph g3(890);
+  
+  std::vector<std::pair<int, int>> locats1 = g1.CalculateLocations();
+  std::vector<std::pair<int, int>> locats2 = g2.CalculateLocations();
+  std::vector<std::pair<int, int>> locats3 = g3.CalculateLocations();
+
+  REQUIRE(locats1.size() == 10);
+  REQUIRE(locats2.size() == 555);
+  REQUIRE(locats3.size() == 890);
+}
+
+TEST_CASE("Test Locations in Bound", "[weight=1]") {
+  Graph g(325);
+  
+  std::vector<std::pair<int, int>> locats = g.CalculateLocations();
+
+  for (int i = 0; i < locats.size(); i++) {
+    REQUIRE(locats[i].first < 1600);
+    REQUIRE(locats[i].second < 800);
+  }
 }

@@ -51,17 +51,18 @@ Pokemon::Pokemon(double dexID) {
         while (getline(p, val, ',')) {
             pokemon.push_back(val.substr(1));
         }
+
         int curr_pokemon = std::stoi(pokemon[0]);
         if (dexID == curr_pokemon) {
             if (pokemon[0] != ""){
                 pokedexID_ = stod(pokemon[0]);
             }
-            //pokedexID_ = stod(pokemon[0]);
+            
             name_ = pokemon[1];
             if (pokemon[4] != ""){
                 gen_ = stod(pokemon[4]);
             }
-            //gen_ = stod(pokemon[4]);
+            
             status_ = pokemon[5];
             species_ = pokemon[6];
             typeOne_ = pokemon[8];
@@ -69,15 +70,15 @@ Pokemon::Pokemon(double dexID) {
             if (pokemon[10] != ""){
                 height_ = stod(pokemon[10]);
             }
-            //height_ = stod(pokemon[10]);
+            
             if (pokemon[11] != ""){
                 weight_ = stod(pokemon[11]);
             }
-            //weight_ = stod(pokemon[11]);
+            
             if (pokemon[23] != ""){
                 catchRate_ = stod(pokemon[23]);
             }
-            //catchRate_ = stod(pokemon[23]);
+            
             finished = true;
         }
         pokemon.clear();
